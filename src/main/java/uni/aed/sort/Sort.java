@@ -6,7 +6,7 @@ public class Sort {
     private long tEjec=0;   //tiempo de Ejecucion (nanosegundos)
     
     public Sort() {
-    }      
+    }
     public Sort(Integer[] Y) {
         this.Y = Y;
     }
@@ -16,6 +16,9 @@ public class Sort {
     public Integer[] getY() {
         return Y;
     }
+    
+   
+    
 
     public void setnComp(int nComp) {
         this.nComp = nComp;
@@ -58,6 +61,9 @@ public class Sort {
         this.settEjec(0);
     }
     
+    
+    
+    
     public Integer[] insercionSort(){
         Integer[] X=getY().clone();
         int aux,k;
@@ -85,30 +91,44 @@ public class Sort {
         this.settEjec(tFin-tIni);
         return X;
     }
-    public Integer[] selectionWuSort(){
+    public Integer[] selectionWuSort(){       
         Integer[] X=getY().clone();
         int startIndex, minIndex, lenght, temp;
         lenght=X.length;
+        clear();
+        long tIni=System.nanoTime();
         for(startIndex=0;startIndex<=lenght-2;startIndex++){
             minIndex=startIndex;
             for(int i=startIndex+1; i<=lenght-1;i++){
-                if(X[i]<X[minIndex])minIndex=i;
+                if(X[i]<X[minIndex]){
+                    nComp++;
+                    minIndex=i;
+                }
             }
             temp=X[startIndex];
+            nInt++;
             X[startIndex]=X[minIndex];
             X[minIndex]=temp;            
         }
+        long tFin=System.nanoTime();
+        this.setnComp(nComp);
+        this.setnInt(nInt);
+        this.settEjec(tFin-tIni);
         return X;
-    }   
+    }
     public Integer[] bubbleWuSort(){//burbuja
         Integer[] X=getY().clone();
         int temp, bottom;
+        clear();
+        long tIni=System.nanoTime();
         boolean exchanged=true;
         bottom=X.length-2;
         while(exchanged){
             exchanged=false;
             for(int i=0;i<=bottom;i++){
-                if(X[i]>X[i+1]){                    
+                nComp++; 
+                if(X[i]>X[i+1]){
+                nInt++;                    
                     temp=X[i];
                     X[i]=X[i+1];
                     X[i+1]=temp;                    
@@ -117,6 +137,10 @@ public class Sort {
             }
             bottom--;
         }
+        long tFin=System.nanoTime();
+        this.setnComp(nComp);
+        this.setnInt(nInt);
+        this.settEjec(tFin-tIni);
         return X;
     }
     
