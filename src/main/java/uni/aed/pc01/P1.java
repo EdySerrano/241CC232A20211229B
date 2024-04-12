@@ -1,8 +1,5 @@
-package uni.aed.pc01241CC232A20211229BPC1;
-/**
- * Algoritmo que determina el Maximo y Minimo de una lista de numeros enteros
- * @author uni.cc232
- */
+package uni.aed.pc01;
+
 public class P1 {    
     
     public Integer getMaxValor(Integer[] X){
@@ -25,7 +22,4 @@ public class P1 {
         }
         return min;
     }
-}
-public class P1 {
-    
 }
