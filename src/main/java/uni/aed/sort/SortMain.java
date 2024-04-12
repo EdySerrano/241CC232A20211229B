@@ -6,10 +6,11 @@ public class SortMain {
     
     public static void main(String[] args){
         carga();
-        visualizar();
-        insercionSort();
-        selectionWuSort();
-        bubbleWuSort();
+        QuickSort();
+        //visualizar();
+        //insercionSort();
+        //selectionWuSort();
+        //bubbleWuSort();
         
 //        selectionWuSort();
 //        visualizar();
@@ -62,4 +63,20 @@ public class SortMain {
         System.out.println(" nComp= "+sort.getnComp()+" nInt= "+sort.getnInt()+" tEjec(ns)= "+ sort.gettEjec());
     }            
     
+    public static void heapSort(){
+        for(Integer y: sort.heapSort())
+            System.out.print(y.toString()+ ",");
+        System.out.println("");
+    }
+    
+    
+    public static void QuickSort(){
+        Integer[] X=sort.CallQuickSort();
+        for(Integer y: X)
+            System.out.print(y.toString()+ ",");
+        System.out.print("");
+    }
 }
+
+   
+    
